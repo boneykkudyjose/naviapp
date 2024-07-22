@@ -48,7 +48,7 @@ df.to_csv('refined_map.csv')
 
 # Create a map centered at a specific location
 map_center = [df['latitude'].mean(), df['longitude'].mean()]
-mymap = folium.Map(location=map_center, zoom_start=12)
+mymap = folium.Map(location=map_center, zoom_start=6)
 
 # Function to create an HTML iframe for the video popup
 def create_video_popup(video_url):
@@ -65,6 +65,4 @@ for _, row in df.iterrows():
     ).add_to(mymap)
 
 # Render the map in Streamlit
-st.title("Map with Video Popups from DataFrame")
-st.write("Click on a marker to view the video.")
 st_folium(mymap, width=800, height=600)
